@@ -71,6 +71,16 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# brew below
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export MANPATH="/usr/local/man:$MANPATH"
+# install gun updated tools from brew
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+# brew upon
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -100,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias java_jre='/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java'
+alias java='/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java'
 alias artisan='php artisan'
 alias python='/usr/local/bin/python'
 
@@ -109,19 +120,40 @@ if [ -f '/Users/jackkuo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jackkuo
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jackkuo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jackkuo/google-cloud-sdk/completion.zsh.inc'; fi
 export GOPATH=$(go env GOPATH)
+alias ls="gls --color=always"
+
+# man pages color
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # end mode
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # Golang command
 alias gobuildwin='env GOOS=windows GOARCH=386 go build'
+alias gobuildwin64='env GOOS=windows GOARCH=amd64 go build'
 # Bash commands
 alias ..='cd ..'
 alias gpg='gpg2'
 alias bindport='lsof -nP -iTCP -sTCP:LISTEN'
-alias ptt="ssh bbsu@ptt.cc"
+alias ppp="netstat -vanp tcp"
 # The docker commands
 alias ubuntu='docker run -it ubuntu /bin/bash'
 alias ubunturm='docker run -it --rm ubuntu /bin/bash'
+alias ubunturm16='docker run -it --rm ubuntu:16.04 /bin/bash'
 alias sonarqube='docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube'
 alias tor="docker run --rm -it -p 8080:8118 -p 9050:9050 -d dperson/torproxy"
 alias mibis="docker run -it --cap-add sys_ptrace mibis /bin/bash"
+alias mibisv="docker run -it -v `pwd`:/root/share --cap-add sys_ptrace mibis /bin/bash"
 alias mibisrm="docker run -it --cap-add sys_ptrace --rm mibis /bin/bash"
+alias mibisrmv="docker run -it -v "`pwd`":/root/share --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm mibis /bin/bash"
+alias buildmibis="docker build -t mibis ."
+alias please="sudo"
+alias plz="sudo"
+alias mv="mv -i"
+alias myip="curl ipinfo.io"
 export GPG_TTY=$(tty)
+alias objdump="objdump -M intel"
+#PYTHONWARNINGS="ignore:Unverified HTTPS request"
