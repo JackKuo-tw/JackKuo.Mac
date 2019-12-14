@@ -8,7 +8,7 @@ WORKDIR /root
 RUN mkdir share
 
 # Utilities
-RUN apt-get update && apt-get install -y git wget curl file vim binutils less gcc gdb strace ltrace netcat socat dnsutils
+RUN apt-get update && apt-get install -y git wget curl file vim binutils less gcc gdb strace ltrace netcat socat dnsutils tmux
 
 # Python
 RUN apt-get install -y python python3 python-pip python3-pip
