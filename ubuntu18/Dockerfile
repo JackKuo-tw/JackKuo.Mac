@@ -1,6 +1,5 @@
-from ubuntu:16.04
+from ubuntu:18.04
 # mibis: a full utilities environment for my daily use
-# use 16.04 is for pwn without align
 # alias mibisrmv="docker run -it -v "`pwd`":/root/share --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm mibis /bin/bash"
 WORKDIR /root
 

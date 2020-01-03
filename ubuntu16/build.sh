@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t mibis .
+docker build -t u16 .
