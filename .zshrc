@@ -1,20 +1,7 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="/Users/jackkuo/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="steeef"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME="steeef"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -63,6 +50,7 @@ ZSH_THEME="steeef"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  colored-man-pages
   git
   extract
   z
@@ -72,7 +60,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # brew below
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin/"
 export MANPATH="/usr/local/man:$MANPATH"
 # install gun updated tools from brew
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -80,6 +68,9 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 # brew upon
+
+# VMWare command
+export PATH="/Applications/VMware Fusion.app/Contents/Library:$PATH"
 
 # User configuration
 
@@ -101,18 +92,11 @@ export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias java_jre='/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java'
 alias java='/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java'
 alias artisan='php artisan'
-alias python='/usr/local/bin/python'
+alias python='/usr/bin/python'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jackkuo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jackkuo/google-cloud-sdk/path.zsh.inc'; fi
@@ -122,19 +106,10 @@ if [ -f '/Users/jackkuo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/j
 export GOPATH=$(go env GOPATH)
 alias ls="gls --color=always"
 
-# man pages color
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
-
 # Golang command
 alias gobuildwin='env GOOS=windows GOARCH=386 go build'
 alias gobuildwin64='env GOOS=windows GOARCH=amd64 go build'
-# Bash commands
+
 alias ..='cd ..'
 alias gpg='gpg2'
 alias bindport='lsof -nP -iTCP -sTCP:LISTEN'
@@ -146,14 +121,18 @@ alias ubunturm16='docker run -it --rm ubuntu:16.04 /bin/bash'
 alias sonarqube='docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube'
 alias tor="docker run --rm -it -p 8080:8118 -p 9050:9050 -d dperson/torproxy"
 alias mibis="docker run -it --cap-add sys_ptrace mibis /bin/bash"
-alias mibisv="docker run -it -v `pwd`:/root/share --cap-add sys_ptrace mibis /bin/bash"
-alias mibisrm="docker run -it --cap-add sys_ptrace --rm mibis /bin/bash"
 alias mibisrmv="docker run -it -v "`pwd`":/root/share --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm mibis /bin/bash"
-alias buildmibis="docker build -t mibis ."
-alias please="sudo"
-alias plz="sudo"
+alias u16="docker run -it --rm -v "`pwd`":/root/share --cap-add=SYS_PTRACE --security-opt seccomp=unconfined u16 /bin/bash"
+alias u18="docker run -it --rm -v "`pwd`":/root/share --cap-add=SYS_PTRACE --security-opt seccomp=unconfined u18 /bin/bash"
+alias myarch="docker run -it -p 9000:9000 -v `pwd`:/root/share --cap-add sys_ptrace --rm myarch /bin/bash"
+# mv: prompt before overwrite
 alias mv="mv -i"
+alias vpn_canlab_ap="pppd call canlab_ap"
 alias myip="curl ipinfo.io"
+alias reload="source ~/.zshrc"
+# multipass
+alias mtp="multipass"
+alias mtpnew="mtp launch -c 4 -d 2G -m 512M"
 export GPG_TTY=$(tty)
-alias objdump="objdump -M intel"
 #PYTHONWARNINGS="ignore:Unverified HTTPS request"
+
