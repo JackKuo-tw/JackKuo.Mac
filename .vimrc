@@ -1,24 +1,28 @@
+"=== basic setting ===
 syntax on                                                                       
-"顯示行號
-set nu
-"啟用行游標提示
-set cursorline
-"使用空白取代 Tab
-set expandtab
-"自訂縮排所需的空白鍵位元數
-set shiftwidth=4
-"控制 Tab 時所需要的空白鍵 (Tab) 字元數
-set tabstop=4
-"自動縮排, 怕貼上時亂掉可以先 :set paset
-set ai
-set lazyredraw
-"搜尋不分大小寫
-set ic
-"在關鍵字尚未完全輸入完畢前就顯示結果
-set incsearch
+set nu "顯示行號
+set cursorline "啟用行游標提示
+set expandtab "使用空白取代 Tab
+set shiftwidth=4 "自訂縮排所需的空白鍵位元數
+set tabstop=4 "控制 Tab 時所需要的空白鍵 (Tab) 字元數
+set ai "自動縮排, 怕貼上時亂掉可以先 :set paset
+set lazyredraw "延遲載入，速度會快一點
+set ignorecase "搜尋時不分大小寫，簡稱 ic
+set incsearch "在關鍵字尚未完全輸入完畢前就顯示結果
+set nobackup "不使用 .swp 檔
+set linebreak "使用折行
+set ruler "在狀態列顯示游標所在處
+set showcmd "在狀態列顯示目前指令
+set wildmenu "命令自動補全
+set viminfo='20,\"50
 
+"=== scheme ===
+colorscheme darkblue
+
+"=== binding ===
 nnoremap <silent> <F5> :NERDTree<CR>
 
+"=== plugin ===
 execute pathogen#infect()
 " ALE installation: https://github.com/w0rp/ale#installation
 " Auto Pairs installation: https://github.com/jiangmiao/auto-pairs
@@ -46,7 +50,7 @@ nmap <Leader>d :ALEDetail<CR>
 "自動完成
 " let g:ale_completion_enabled = 1
 
-
+"== for YouCompleteMe
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -90,3 +94,5 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"= special setting =
+let g:ycm_use_clangd = 0
