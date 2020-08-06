@@ -10,18 +10,23 @@ My configuration in Mac
 
 # 應用程式
 ## Alfred
+
 進階版 Spotlight，用來切換不同 App 很方便,可以減少觸控板使用
 
-## Mailspring
-很推的電郵客戶端，[介紹看這邊](https://jackkuo.org/%e5%a5%bd%e7%94%a8%e8%b7%a8%e5%b9%b3%e5%8f%b0%e9%96%8b%e6%ba%90%e9%9b%bb%e9%83%b5%e5%ae%a2%e6%88%b6%e7%ab%af-mailspring/)
-
 ## DBeaver
+
 Java 跨平台資料庫工具，大多數資料庫都能開就不用裝一堆
 
 ## iTerm
+
 搭配 zsh + oh-my-zsh，七萬顆星星不解釋
 
-#BetterTouchTool
+## Mos
+
+一個用於在 MacOS 上平滑你的滑鼠滾動效果的小工具，讓你的滾輪爽如觸控板。
+
+# BetterTouchTool
+
 自定義 Touch Bar
 
 ![TouchBar](https://i.imgur.com/yIi2FPy.jpg)

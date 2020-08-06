@@ -127,12 +127,20 @@ alias u18="docker run -it --rm -v "`pwd`":/root/share --cap-add=SYS_PTRACE --sec
 alias myarch="docker run -it -p 9000:9000 -v `pwd`:/root/share --cap-add sys_ptrace --rm myarch /bin/bash"
 # mv: prompt before overwrite
 alias mv="mv -i"
+alias cp="cp -i"
+alias rg="rg -i"
 alias vpn_canlab_ap="pppd call canlab_ap"
 alias myip="curl ipinfo.io"
 alias reload="source ~/.zshrc"
 # multipass
 alias mtp="multipass"
 alias mtpnew="mtp launch -c 4 -d 2G -m 512M"
+alias dush="du -sh * | sort -h"
 export GPG_TTY=$(tty)
+function search_note() {
+    rg $1 ~/Dropbox/筆記
+}
+alias snote="search_note"
+alias dat2mp4="for f in *.DAT;do ffmpeg -i \"\$f\" \"\${f%.DAT}.mp4\"; done"
 #PYTHONWARNINGS="ignore:Unverified HTTPS request"
 
