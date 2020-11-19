@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y git wget curl file vim binutils less gc
 RUN apt-get install -y python python3 python-pip python3-pip
 RUN pip install pwntools && \
     pip install git+https://github.com/ReFirmLabs/binwalk.git
-RUN pip3 install ipython request
+RUN pip3 install ipython requests
 
 # GDB PEDA
 RUN git clone https://github.com/longld/peda.git && echo "source ~/peda/peda.py" >> .gdbinit
@@ -38,5 +38,8 @@ RUN echo 'alias ls="ls -Fh --color=auto"' >> /root/.bashrc
 
 # tmux
 ADD .tmux.conf /root
+
+# vim
+RUN echo 'colorscheme darkblue' >> /root/.vimrc
 
 ENTRYPOINT /bin/bash
