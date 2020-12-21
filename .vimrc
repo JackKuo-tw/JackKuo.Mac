@@ -22,6 +22,11 @@ colorscheme darkblue
 "=== binding ===
 nnoremap <silent> <F5> :NERDTree<CR>
 
+"=== remember last cursor position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 "=== plugin ===
 execute pathogen#infect()
 " ALE installation: https://github.com/w0rp/ale#installation
@@ -93,6 +98,5 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
 "= special setting =
 let g:ycm_use_clangd = 0
