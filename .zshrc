@@ -154,5 +154,5 @@ alias dat2mp4="for f in *.DAT;do ffmpeg -i \"\$f\" \"\${f%.DAT}.mp4\"; done"
 alias gd="git icdiff"
 #PYTHONWARNINGS="ignore:Unverified HTTPS request"
 
-alias pythonformat="isort && black . && autopep8 --in-place --recursive . && flake8"
+alias pythonformat="isort . && black . && autopep8 --in-place --recursive . && flake8"
 
